@@ -17,8 +17,6 @@ class PongGame:
             Button(22, '1P', buttonhandler=None),
             Button(21, '2P', buttonhandler=None)
         ]
-        
-
 
     def stateDo(self, state):
         print(f"Executing stateDo for state {state}")
