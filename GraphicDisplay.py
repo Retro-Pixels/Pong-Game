@@ -10,14 +10,11 @@ class OLED:
         self._buff = framebuf.FrameBuffer(bytearray(width * height), width, height, framebuf.MONO_HLSB)
 
     def customToBuff(self, data):
-        # Ensure proper padding for Base64 data
-        missing_padding = len(data) % 4
-        if missing_padding != 0:
-            data += b'=' * (4 - missing_padding)
-        buffData = bytearray(base64.b64decode(data))
-        width = 128
-        height = 64
-        return framebuf.FrameBuffer(buffData, width, height, framebuf.MONO_HLSB)
+        databyte = bytearray(base64.b64decode(data))
+        width = databyte[0]
+        height = databyte[1]
+        fbuff = framebuf.FrameBuffer(databyte[2:],width,height, framebuf.MONO_HLSB)
+        return fbuff
 
     def showShape(self, data, row=0, col=0):
         self._display.fill(0)

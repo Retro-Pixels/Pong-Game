@@ -4,6 +4,11 @@ from Pong import PongGame
 # Initialize the game
 mygame = PongGame()
 
+
+"""
+    White Button - 1 player mode
+    Yellow Button - 2 player mode 
+"""
 # Main game loop
 try:
     while True:
